@@ -1,0 +1,104 @@
+﻿@model ShopEcommerce.Web.Models.OrderViewModel
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var total = ViewBag.TotalAmout;
+    // Trong View
+    var Model = (List<ShopEcommerce.Web.Models.CartViewModel>)ViewBag.ListOrder;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Assets/Client/css/nyDesign/order.css" rel="stylesheet" />
+    <title>Giỏ hàng</title>
+</head>
+<body>
+
+    <div class="cart-container">
+        <div class="cart-header">
+            <h2>TRANG THANH TOÁN CỦA BẠN</h2>
+        </div>
+        <div class="cart-item">
+            <div class="chose"><strong><font color="green">CHỌN</font></strong></div>
+            <div class="product"><strong><font color="green">SẢN PHẨM</font></strong></div>
+            <div class="price"><strong><font color="green">ĐƠN GIÁ</font></strong></div>
+            <div class="quantity"><strong><font color="green">SỐ LƯỢNG</font></strong></div>
+            <div class="momney"><strong><font color="green">SỐ TIỀN</font></strong></div>
+        </div>
+        @if (Model != null)
+        {
+            foreach (var cart in Model)
+            {
+                <div class="cart-item" data-product-id="@cart.Product.ID">
+                    <input type="checkbox" class="product-checkbox">
+                    <img class="product-image" src="@cart.Product.Image" alt="Product Image">
+                    <div class="product-info">
+                        <div class="product-name">@cart.Product.Name</div>
+                    </div>
+                    <div class="product-price">@cart.Product.Price.ToString("N0")</div>
+                    <div class="quantity-container">
+                        <input class="quantity-input" type="text" data-id="@cart.Product.ID" value="@cart.Quantity" min="1" oninput="updateTotal('@cart.Product.ID')">
+                    </div>
+                    <div class="product-price-end" data-product-total="@((cart.Product.Price * cart.Quantity).ToString("N0"))">@((cart.Product.Price * cart.Quantity).ToString("N0"))</div>
+                </div>
+
+            }
+
+            <div class="cart-footer">
+                <div class="total-price">Tổng cộng: <span id="totalPrice">@total VNĐ</span></div>
+            </div>
+
+        }
+        else
+        {
+            <h1><font color="red">Faild</font></h1>
+        }
+    </div>
+    <!-- Biểu mẫu liên hệ -->
+    <div class="contact-form">
+        <h4><strong><font color="orange">THÔNG TIN ĐẶT VÀ GIAO HÀNG</font></strong></h4>
+        @using (Html.BeginForm("Order", "Cart", FormMethod.Post))
+        {
+            if (ViewData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success" role="alert">
+                    <strong>Cảm ơn bạn !</strong> đã đặt hàng
+                    <br />Chúng tôi sẽ liên hệ lại sớm nhất .
+                </div>
+            }
+            @Html.AntiForgeryToken();
+            @Html.ValidationSummary(false, "", new { @class = "error" })
+            <div class="styled-input">
+                @Html.TextBoxFor(model => model.CustomerName)
+                <label>Họ Và Tên</label>
+                <span></span>
+            </div>
+            <div class="styled-input">
+                @Html.TextBoxFor(model => model.CustomerAddress)
+                <label>Địa Chỉ </label>
+                <span></span>
+            </div>
+            <div class="styled-input">
+                @Html.TextBoxFor(model => model.CustomerPhoneNumber)
+                <label>Số ĐIện Thoại</label>
+                <span></span>
+            </div>
+            <div class="styled-input">
+                @Html.TextBoxFor(model => model.CustomerEmail)
+                <label>Email</label>
+                <span></span>
+            </div>
+            <div class="styled-input">
+                @Html.TextBoxFor(model => model.CustomerMessage)
+                <label>Lời Nhắn</label>
+                <span></span>
+            </div>
+
+            <input type="submit" value="GỬI">
+        }
+    </div>
+</body>
+</html>

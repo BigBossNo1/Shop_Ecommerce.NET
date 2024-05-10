@@ -1,0 +1,77 @@
+﻿
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin người dùng</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .user-details {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 100%; /* Chiếm toàn bộ chiều cao của màn hình */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .confirm-btn {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-details" ng-if="contactDetal">
+        <h2><font color="orange"><strong>THÔNG TIN LIÊN HỆ TỪ KHÁCH HÀNG</strong></font></h2>
+        <div>
+            <label>Họ tên:</label>
+            <span>{{contactDetal.Name}}</span>
+        </div>
+        <div>
+            <label>Email:</label>
+            <span>{{contactDetal.Email}}</span>
+        </div>
+
+        <div>
+            <label>Số điện thoại:</label>
+            <span>{{contactDetal.PhoneNumber}}</span>
+        </div>
+
+        <div>
+            <label>Lời nhắn:</label>
+            <span>{{contactDetal.Message}}</span>
+        </div>
+
+        <!-- Button trong HTML -->
+        <button type="button" class="confirm-btn" ng-click="confirmInfor(contactDetal.ID)">Xác nhận thông tin</button>
+    </div>
+
+    <script>
+        function xacNhanThongTin() {
+            // Thêm mã xử lý xác nhận thông tin ở đây
+            alert('Thông tin đã được xác nhận!');
+        }
+    </script>
+</body>
+

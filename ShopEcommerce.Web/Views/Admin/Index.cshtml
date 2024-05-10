@@ -1,0 +1,198 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Shoppy an Admin Panel Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <link href="~/Assets/Admin/css/bootstrap.css" rel="stylesheet" />
+    <!-- Custom Theme files -->
+    <link href="~/Assets/Admin/css/style.css" rel="stylesheet" />
+    <!--js-->
+    <link href="~/Bower_Install/angular-loading-bar/build/loading-bar.css" rel="stylesheet" />
+    <script src="~/Assets/Admin/js/jquery-2.1.1.min.js"></script>
+    <!--icons-css-->
+    <link href="~/Assets/Admin/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Bower_Install/toastr/toastr.css" rel="stylesheet" />
+    <!--Google Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
+    <!--static chart-->
+    <script src="~/Assets/Admin/js/Chart.min.js"></script>
+    <!--//charts-->
+    <!-- geo chart -->
+    <script src="https://cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    <script>window.modernizr || document.write('<script src="lib/modernizr/modernizr-custom.js"><\/script>')</script>
+    <!--<script src="lib/html5shiv/html5shiv.js"></script>-->
+    <!-- Chartinator  -->
+    <script src="~/Assets/Admin/js/chartinator.js"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+
+            var chart3 = $('#geoChart').chartinator({
+                tableSel: '.geoChart',
+
+                columns: [{ role: 'tooltip', type: 'string' }],
+
+                colIndexes: [2],
+
+                rows: [
+                    ['China - 2015'],
+                    ['Colombia - 2015'],
+                    ['France - 2015'],
+                    ['Italy - 2015'],
+                    ['Japan - 2015'],
+                    ['Kazakhstan - 2015'],
+                    ['Mexico - 2015'],
+                    ['Poland - 2015'],
+                    ['Russia - 2015'],
+                    ['Spain - 2015'],
+                    ['Tanzania - 2015'],
+                    ['Turkey - 2015']],
+
+                ignoreCol: [2],
+
+                chartType: 'GeoChart',
+
+                chartAspectRatio: 1.5,
+
+                chartZoom: 1.75,
+
+                chartOffset: [-12, 0],
+
+                chartOptions: {
+
+                    width: null,
+
+                    backgroundColor: '#fff',
+
+                    datalessRegionColor: '#F5F5F5',
+
+                    region: 'world',
+
+                    resolution: 'countries',
+
+                    legend: 'none',
+
+                    colorAxis: {
+
+                        colors: ['#679CCA', '#337AB7']
+                    },
+                    tooltip: {
+
+                        trigger: 'focus',
+
+                        isHtml: true
+                    }
+                }
+
+            });
+        });
+    </script>
+    <style>
+        /* Định dạng nút bấm Shopping */
+        .shopping-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top : 8px;
+        }
+
+            .shopping-button a {
+                display: block;
+                padding: 8px 20px;
+                background-color: green;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+    </style>
+    <!--geo chart-->
+    <!--skycons-icons-->
+    <script src="~/Assets/Admin/js/skycons.js"></script>
+    <!--//skycons-icons-->
+</head>
+<body ng-app="shopEcommerce" ng-controller="rootController">
+    <div ui-view></div>
+    <!--slide bar menu end here-->
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({ "position": "absolute" });
+            }
+            else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({ "position": "relative" });
+                }, 400);
+            }
+            toggle = !toggle;
+        });
+    </script>
+    <!--scrolling js-->
+    <script src="~/Assets/Admin/js/jquery.nicescroll.js"></script>
+    <script src="~/Assets/Admin/js/scripts.js"></script>
+    <!--//scrolling js-->
+    <script src="~/Assets/Admin/js/bootstrap.js"></script>
+
+    <!-- mother grid end here-->
+    @*Library*@
+    <script src="~/bower_install/angular/angular.js"></script>
+    <script src="~/bower_install/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="~/Bower_Install/toastr/toastr.js"></script>
+    <script src="~/Bower_Install/bootbox/bootbox.js"></script>
+    <script src="~/Bower_Install/ckfinder/ckfinder.js"></script>
+    <script src="~/Bower_Install/ckeditor/ckeditor.js"></script>
+    <script src="~/Bower_Install/ngBootbox/ngBootbox.js"></script>
+    <script src="~/Bower_Install/ng-ckeditor/ng-ckeditor.js"></script>
+
+    @*Nhung AngularIS*@
+    <script src="~/App/Share/Module/shop.common.js"></script>
+    <script src="~/App/Share/Filter/statusFilter.js"></script>
+    <script src="~/App/Share/Service/apiServiceCommon.js"></script>
+    <script src="~/App/Share/Service/getSeoTitleService.js"></script>
+    <script src="~/App/Share/Directives/paginationDirectives.js"></script>
+    <script src="~/App/Share/Service/notificationService.js"></script>
+    <script src="~/App/Share/Service/authData.js"></script>
+    <script src="~/App/Share/Service/authenticationService.js"></script>
+    <script src="~/App/Share/Service/loginService.js"></script>
+    <script src="~/App/Components/Product/product.module.js"></script>
+    <script src="~/App/Components/Contact/Conatct.Module.js"></script>
+    <script src="~/App/Components/Product_Category/productCategory.module.js"></script>
+    <script src="~/App/app.js"></script>
+    <script src="~/Bower_Install/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="~/Bower_Install/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="~/App/Components/Cart/Cart.Module.js"></script>
+    <script src="~/App/Components/Order/order.module.js"></script>
+
+    @*Add*@
+    <script src="~/App/Components/Product/productAddController.js"></script>
+    <script src="~/App/Components/Product_Category/productCategoryAddController.js"></script>
+    <script src="~/App/Components/Contact/ContactConfirmController.js"></script>
+    <script src="~/App/Components/Cart/CartDetailController.js"></script>
+    @*List*@
+    <script src="~/App/Components/Product/productListController.js"></script>
+    <script src="~/App/Components/Product_Category/productCategoryListController.js"></script>
+    <script src="~/App/Components/Contact/ContactListController.js"></script>
+    <script src="~/App/Components/Cart/CartListController.js"></script>
+    <script src="~/App/Components/Order/getAllOrderController.js"></script>
+    @*<script src="~/App/Components/Product/productUpdateController.js"></script>*@
+    <script src="~/App/Components/Cart/ListCartConfirmController.js"></script>
+    @*Update*@
+    <script src="~/App/Components/Product/productUpdateController.js"></script>
+    <script src="~/App/Components/Product_Category/productCategoryUpdateController.js"></script>
+    <script src="~/App/Home/HomeController.js"></script>
+    <script src="~/App/Components/Login/LoginController.js"></script>
+    <script src="~/App/Home/rootController.js"></script>
+    <script src="~/App/Components/Contact/ContactDetailController.js"></script>
+</body>
+</html>

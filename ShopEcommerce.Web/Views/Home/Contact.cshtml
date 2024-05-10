@@ -1,0 +1,157 @@
+﻿@model ShopEcommerce.Web.Models.ContactViewModel
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using BotDetect.Web.Mvc;
+<link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl" rel="stylesheet" type="text/css" />
+
+<div class="page-head_agile_info_w3l">
+    <div class="container">
+        <h3>L<span>iên Hệ </span></h3>
+        <!--/w3_short-->
+        <div class="services-breadcrumb">
+            <div class="agile_inner_breadcrumb">
+
+                <ul class="w3_short">
+                    <li><a href="/home">Trang Chủ</a><i>|</i></li>
+                    <li>Liên Hệ</li>
+                </ul>
+            </div>
+        </div>
+        <!--//w3_short-->
+    </div>
+</div>
+<!--/contact-->
+<div class="banner_bottom_agile_info">
+    <div class="container">
+        <div class="contact-grid-agile-w3s">
+            <div class="col-md-4 contact-grid-agile-w3">
+                <div class="contact-grid-agile-w31">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <h4>Địa Chỉ</h4>
+                    <p>Nam Tu Liem , Ha Noi <span>Viet Nam</span></p>
+                </div>
+            </div>
+            <div class="col-md-4 contact-grid-agile-w3">
+                <div class="contact-grid-agile-w32">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <h4>Liên Hệ</h4>
+                    <p>+84 0999999999<span>+84 355725203</span></p>
+                </div>
+            </div>
+            <div class="col-md-4 contact-grid-agile-w3">
+                <div class="contact-grid-agile-w33">
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    <h4>Email</h4>
+                    <p><a href="toanlee03@gmail.com">toanlee03@gmail.com</a><span><a href="hihi@gmail.com">hihi@gmail.com</a></span></p>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+<div class="contact-w3-agile1 map" data-aos="flip-right">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5776.395710225605!2d105.76368994751351!3d21.011773345372685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453594e700953%3A0xdbaaf70dcbb82eb4!2zUGjDuiDEkMO0LCBOYW0gVOG7qyBMacOqbSwgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e1!3m2!1svi!2s!4v1701742371487!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<div class="banner_bottom_agile_info">
+    <div class="container">
+        <div class="agile-contact-grids">
+            <div class="agile-contact-left">
+                <div class="col-md-6 address-grid">
+                    <h4>Thông tin <span>chi tiết</span></h4>
+                    <div class="mail-agileits-w3layouts">
+                        <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                        <div class="contact-right">
+                            <p>Điện thoại </p><span>+84 355725203</span>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="mail-agileits-w3layouts">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <div class="contact-right">
+                            <p>Mail </p><a href="mailto:info@example.com">toanlee03@gmail.com</a>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="mail-agileits-w3layouts">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <div class="contact-right">
+                            <p>Địa chỉ</p><span>Nam Từ Liêm , Hà Nội , Việt Nam</span>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <ul class="social-nav model-3d-0 footer-social w3_agile_social two contact">
+                        <li class="share">CHIA SẺ : </li>
+                        <li>
+                            <a href="#" class="facebook">
+                                <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="twitter">
+                                <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="instagram">
+                                <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                                <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="pinterest">
+                                <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 contact-form">
+                    <h4 class="white-w3ls">Liên Hệ <span>Form</span></h4>
+                    @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+                    {
+                        if (ViewData["SuccessMessage"] != null)
+                        {
+                            <div class="alert alert-success" role="alert">
+                                <strong>Cảm ơn bạn !</strong> đã để lại thông tin liên hệ
+                                <br />Chúng tôi sẽ liên hệ lại sớm nhất .
+                            </div>
+                        }
+                        @Html.AntiForgeryToken();
+                        @Html.ValidationSummary(false, "", new { @class = "error" })
+                        <div class="styled-input agile-styled-input-top">
+                            @Html.TextBoxFor(model => model.Name)
+                            <label>Họ Và Tên</label>
+                            <span></span>
+                        </div>
+                        <div class="styled-input">
+                            @Html.TextBoxFor(model => model.Email)
+                            <label>Email</label>
+                            <span></span>
+                        </div>
+                        <div class="styled-input">
+                            @Html.TextBoxFor(model => model.PhoneNumber)
+                            <label>Số ĐIện Thoại</label>
+                            <span></span>
+                        </div>
+                        <div class="styled-input">
+                            @Html.TextBoxFor(model => model.Message)
+                            <label>Lời Nhắn</label>
+                            <span></span>
+                        </div>
+                        MvcCaptcha ContactCaptCha = new MvcCaptcha("ContactCaptCha");
+                        @Html.Captcha(ContactCaptCha)
+                        @Html.TextBox("ContactCaptCha")
+
+                        <input type="submit" value="GỬI">
+                    }
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+

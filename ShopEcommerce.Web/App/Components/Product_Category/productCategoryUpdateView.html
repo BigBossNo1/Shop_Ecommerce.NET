@@ -1,0 +1,59 @@
+﻿<style>
+    .panel-heading strong {
+        font-size: 30px; /* Đặt kích thước font theo nhu cầu của bạn */
+    }
+</style>
+
+<section class="panel">
+    <header class="panel-heading">
+        <strong><font color="orange"> TRANG CẬP NHẬT DANH MỤC:</font> <font color="blue">{{productcategory.Name}}</font></strong>
+    </header>
+    <div class="panel-body">
+        <div class="position-center">
+            <form role="form" novalidate name="frmuUpdateProductCategory" ng-submit="UpdateProductCategory()">
+                <div class="form-group">
+                    <label for="productName"><font color="green">TÊN DANH MỤC</font></label>
+                    <input type="text" class="form-control" required name="name" ng-change="getSeoTitle()" ng-model="productcategory.Name">
+                </div>
+                <div class="form-group">
+                    <label for="seoTitle"><font color="green">TIÊU ĐỀ SEO</font></label>
+                    <input type="text" class="form-control" name="alias" ng-model="productcategory.Alias">
+                </div>
+                <div class="form-group">
+                    <label for="seoTitle"><font color="green">MÔ TẢ NGẮN</font></label>
+                    <input type="text" class="form-control" name="description" ng-model="productcategory.Description">
+                </div>
+                <div class="form-group">
+                    <label for="seoTitle"><font color="green">DANH MỤC CHA</font></label>
+                    <select name="prentid" class="form-control" ng-options="option.ID as option.Name for option in parentCategory " ng-model="productcategory.ParentID">
+                        Danh Mục Cha
+                        <option value="">Danh mục gốc </option>
+                    </select>
+                    <input type="hidden" ng-model="productcategory.ParentID" />
+                </div>
+                <div class="form-group">
+                    <label for="seoTitle"><font color="green">THỨ TỰ HIỂN THỊ</font></label>
+                    <input type="number" class="form-control" name="displayorder" ng-model="productcategory.DisplayOrder">
+                </div>
+                <div class="form-group">
+                    <label for="seoTitle"><font color="green">THÊM HÌNH ẢNH</font></label>
+                    <input type="text" class="form-control" name="image" ng-model="productcategory.Image">
+                </div>
+                <!--trạng thái-->
+                <div><strong><font color="red">Tích vào nếu danh mục này đang hoạt động</font></strong></div>
+                <div class="form-group">
+                    <label for="statusCheckbox"><font color="green">Trạng thái</font></label>
+                    <input type="checkbox" name="status" ng-checked="productcategory.Status" ng-model="productcategory.Status">
+                </div>
+                <!-- Thêm các trường khác theo cấu trúc tương tự -->
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <!-- Thêm nút submit hoặc các phần tử khác cần thiết -->
+                        <button type="submit" class="btn btn-primary">Cập Nhật</button>
+                        <a href="#!/product_category" class="btn btn-danger">Hủy Cập Nhật</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,96 @@
+﻿@model IEnumerable<ShopEcommerce.Web.Models.ProductCategoryViewModel>
+
+<style>
+    .w3view-cart {
+        background-color: darkcyan; /* Màu xanh dương */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        font-size: 17px; /* Tăng kích thước của nút */
+    }
+
+    .top_nav_right {
+        margin-top: 4px;
+        background-color: darkcyan;
+    }
+
+    .wthreecartaits {
+        background-color: darkcyan;
+    }
+
+    /* Tăng kích thước của biểu tượng trong nút */
+    .w3view-cart i {
+        font-size: 35px;
+        color: darkorange;
+    }
+</style>
+
+<div class="ban-top">
+    <div class="container">
+        <div class="top_nav_left">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav menu__list">
+                            <li class="active menu__item menu__item--current"><a class="menu__link" href="/home">Trang Chủ<span class="sr-only">(current)</span></a></li>
+                            <li class=" menu__item"><a class="menu__link" href="/about">Giới Thiệu</a></li>
+                            @*category*@
+                            @foreach (var category in Model.Where(x => x.ParentID == null))
+                            {
+                                var childCategory = Model.Where(X => X.ParentID == category.ID);
+                                <li class="dropdown menu__item">
+                                    <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@category.Name <span class="caret"></span></a>
+                                    <ul class="dropdown-menu multi-column columns-3">
+                                        <div class="agile_inner_drop_nav_info">
+                                            <div class="col-sm-6 multi-gd-img1 multi-gd-text ">
+                                                <a href="mens.html"><img src="~/Assets/Client/images/top2.jpg" alt=" " /></a>
+                                            </div>
+                                            <div class="col-sm-3 multi-gd-img">
+                                                @if (childCategory.Count() > 0)
+                                                {
+
+                                                    <ul class="multi-column-dropdown">
+                                                        @foreach (var listChild in childCategory)
+                                                        {
+                                                            var url = "/" + listChild.Alias + "-pc-" + listChild.ID + "/infor";
+                                                            <li><a href="@url"><font color="green"><strong>@listChild.Name</strong></font></a></li>
+                                                        }
+
+                                                    </ul>
+                                                }
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </ul>
+                                </li>
+                            }
+
+                            @*end category*@
+                            <li class=" menu__item"><a class="menu__link" href="/contact">Liên Hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="top_nav_right">
+            <div class="wthreecartaits wthreecartaits2 cart cart box_1">
+                <a href="/cart-infor" class="w3view-cart">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="clearfix"></div>
+    </div>
+</div>

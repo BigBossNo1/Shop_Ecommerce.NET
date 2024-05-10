@@ -1,0 +1,49 @@
+﻿<div class="work-progres">
+    <style>
+        .chit-chat-heading {
+            font-size: 30px;
+            font-weight: initial; /* Đặt độ đậm của chữ */
+            color: orange
+        }
+    </style>
+    <div class="chit-chat-heading">
+        <strong>Thông Tin Khách Hàng</strong>
+    </div>
+
+    <div class="customer-info">
+        <ul>
+            <li><strong>Tên : </strong> {{informationCustomer.CustomerName}}</li>
+            <li><strong>Số điện thoại : </strong> {{informationCustomer.CustomerPhoneNumber}}</li>
+            <li><strong>Địa chỉ :</strong> {{informationCustomer.CustomerAddress}}</li>
+            <li><strong>Email :</strong> {{informationCustomer.CustomerEmail}}</li>
+            <li><strong>Lời nhắn của khách hàng :</strong> {{informationCustomer.CustomerMessage}}</li>
+            <li><strong>Ngày mua hàng :</strong> {{informationCustomer.CreateDate}}</li>
+            <li><strong>Nhân viên bán hàng :</strong>{{informationCustomer.CreateBy}}</li>
+            <li><strong>Phương thức thanh toán :</strong> {{informationCustomer.PaymentMethod}}</li>
+            <li><strong>Trạng thái đơn hàng :</strong> {{informationCustomer.PaymentStatuss}}</li>
+        </ul>
+    </div>
+    <div class="chit-chat-heading">
+        <strong>Thông Tin Đơn Hàng</strong>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th><strong><font color="green">Mã Sản Phẩm</font></strong></th>
+                    <th><strong><font color="green">Số Lượng </font></strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in cartDetal">
+                    <!--  -->
+                    <td><strong>{{item.ProductID}}</strong></td>
+                    <td><strong>{{item.Quantity}}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Trong template của bạn -->
+    <a href="#!/" class="btn btn-success" ng-click="confirmOrder($event)">Xác nhận đơn hàng</a>
+
+</div>

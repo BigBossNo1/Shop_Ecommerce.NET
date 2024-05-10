@@ -1,0 +1,93 @@
+﻿@model ShopEcommerce.Web.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using BotDetect.Web.Mvc;
+<link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl" rel="stylesheet" type="text/css" />
+
+<div>
+    <div>
+        <div class="modal-content">
+            <div class="modal-body modal-body-sub_agile">
+                <div class="row">
+                    <div class="col-md-4" style="margin-left:80px;">
+                        <img src="~/Assets/Client/images/panda-lr.png" alt=" " class="img-fluid" />
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="agileinfo_sign"><strong><font color="orange">Đăng ký <span>ngay</span></font></strong></h3>
+                        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken();
+                            @Html.ValidationSummary(false, "", new { @class = "error" })
+                            if (ViewData["SuccessMessage"] != null)
+                            {
+                                <div class="alert alert-success" role="alert">
+                                    <strong>Chúc mừng bạn đã đăng ký thành công .</strong>
+                                    <br /> Hãy đăng nhập <a href="/#!/login"> tại đây</a>
+                                </div>
+                            }
+                            <div class="form-group">
+                                <label for="FullName">Họ và Tên</label>
+                                @Html.TextBoxFor(model => model.FullName)
+                            </div>
+                            <div class="form-group">
+                                <label for="UserName">Tên đăng nhập</label>
+                                @Html.TextBoxFor(model => model.UserName)
+                            </div>
+                            <div class="form-group">
+                                <label for="Email">Email</label>
+                                @Html.TextBoxFor(model => model.Email)
+                            </div>
+                            <div class="form-group">
+                                <label for="Password">Mật khẩu</label>
+                                @Html.PasswordFor(model => model.PassWord)
+                            </div>
+                            <div class="form-group">
+                                <label for="PhoneNumber">Số Điện Thoại</label>
+                                @Html.TextBoxFor(model => model.PhoneNumber)
+                            </div>
+
+                            MvcCaptcha RegisterCaptcha = new MvcCaptcha("RegisterCaptcha");
+                            @Html.Captcha(RegisterCaptcha)
+                            @Html.TextBox("RegisterCaptcha")
+
+                            <input type="submit" value="Đăng ký" class="btn btn-primary btn-block">
+
+                        }
+                        <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
+                            <li>
+                                <a href="#" class="facebook">
+                                    <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                    <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="twitter">
+                                    <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                    <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="instagram">
+                                    <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                                    <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="pinterest">
+                                    <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                    <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                        <p><a href="#">Đồng ý với tất cả điều khoản của shop</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

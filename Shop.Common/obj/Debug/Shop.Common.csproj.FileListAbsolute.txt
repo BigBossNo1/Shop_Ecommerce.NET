@@ -1,0 +1,6 @@
+E:\All Code Web\ASP.NET MVC (CODE)\Shop_Ecommerce\ShopEcommerce.Web\Shop.Common\bin\Debug\Shop.Common.dll
+E:\All Code Web\ASP.NET MVC (CODE)\Shop_Ecommerce\ShopEcommerce.Web\Shop.Common\bin\Debug\Shop.Common.pdb
+E:\All Code Web\ASP.NET MVC (CODE)\Shop_Ecommerce\ShopEcommerce.Web\Shop.Common\obj\Debug\Shop.Common.csproj.CoreCompileInputs.cache
+E:\All Code Web\ASP.NET MVC (CODE)\Shop_Ecommerce\ShopEcommerce.Web\Shop.Common\obj\Debug\Shop.Common.dll
+E:\All Code Web\ASP.NET MVC (CODE)\Shop_Ecommerce\ShopEcommerce.Web\Shop.Common\obj\Debug\Shop.Common.pdb
+E:\All Code Web\ASP.NET MVC (CODE)\Shop_Ecommerce\ShopEcommerce.Web\Shop.Common\obj\Debug\Shop.Common.csproj.AssemblyReference.cache

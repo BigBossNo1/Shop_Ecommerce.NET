@@ -1,0 +1,269 @@
+﻿@model ShopEcommerce.Web.Models.ProductViewModel
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<ShopEcommerce.Web.Models.ProductViewModel> list = (IEnumerable<ShopEcommerce.Web.Models.ProductViewModel>)ViewBag.ListSame;
+    IEnumerable<ShopEcommerce.Web.Models.ProductTagViewModel> _listTagProduct = (IEnumerable<ShopEcommerce.Web.Models.ProductTagViewModel>)ViewBag.ListTagProduct;
+
+}
+
+
+<style>
+    .now-get {
+        background-color: cadetblue; /* Màu xanh cho nền */
+        padding: 10px 20px; /* Tăng độ rộng và chiều cao của nút nếu cần */
+        display: inline-block; /* Để nút chỉ chiếm chiều rộng của nội dung bên trong */
+        text-align: center; /* Canh giữa văn bản trong nút */
+        font-weight: bold; /* Chữ in đậm */
+        color: white; /* Màu chữ trắng */
+        text-decoration: none; /* Loại bỏ gạch chân (nếu cần) */
+    }
+</style>
+<div id="alertContainer" class="position-fixed top-0 end-0 p-3">
+    <!-- Thông báo Bootstrap sẽ được hiển thị ở đây -->
+</div>
+
+<div class="page-head_agile_info_w3l">
+    <div class="container">
+        <h3>Trang <span>chi tiết </span></h3>
+        <!--/w3_short-->
+        <div class="services-breadcrumb">
+            <div class="agile_inner_breadcrumb">
+
+                <ul class="w3_short">
+                    <li><a href="/home">Trang Chủ</a><i>|</i></li>
+                    <li>Chi Tiết</li>
+                </ul>
+            </div>
+        </div>
+        <!--//w3_short-->
+    </div>
+</div>
+
+<!-- banner-bootom-w3-agileits -->
+<div class="banner-bootom-w3-agileits">
+    <div class="container">
+        <div class="col-md-4 single-right-left ">
+            <div class="grid images_3_of_2">
+                <div class="flexslider">
+
+                    <ul class="slides">
+                        <li data-thumb="images/d2.jpg">
+                            <div class="thumb-image"> <img src="@Model.Image" data-imagezoom="true" class="img-responsive"> </div>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 single-right-left simpleCart_shelfItem">
+            <h3>@Model.Name</h3>
+            <p><span class="item_price">@Model.Price</span> <del>@Model.Price</del></p>
+            <div class="rating1">
+                <span class="starRating">
+                    <input id="rating5" type="radio" name="rating" value="5">
+                    <label for="rating5">5</label>
+                    <input id="rating4" type="radio" name="rating" value="4">
+                    <label for="rating4">4</label>
+                    <input id="rating3" type="radio" name="rating" value="3" checked="">
+                    <label for="rating3">3</label>
+                    <input id="rating2" type="radio" name="rating" value="2">
+                    <label for="rating2">2</label>
+                    <input id="rating1" type="radio" name="rating" value="1">
+                    <label for="rating1">1</label>
+                </span>
+            </div>
+            <div class="description">
+                <h5>Kiểm tra nguồn gốc sản phẩm</h5>
+                <form action="#" method="post">
+                    <input type="text" value="Enter pincode" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nhập tên sản phẩm';}" required="">
+                    <input type="submit" value="Check">
+                </form>
+            </div>
+            <div class="color-quality">
+                <div class="color-quality-right">
+                    <h5>Số Lượng : @Model.Quantity </h5>
+                    <h5>
+                        <font color="red">Tag Sản Phẩm :</font>
+                    </h5>
+                    <ul>
+                        @foreach (var listTag in _listTagProduct)
+                        {
+                            var urlTag = "/" + listTag.TagID + "/infor";
+                            <li><a href="@urlTag">@listTag.TagID</a></li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+            <div class="occasional">
+                <h5>Size :</h5>
+                <div class="colr ert">
+                    <label class="radio"><input type="radio" name="radio" checked=""><i></i>S</label>
+                </div>
+                <div class="colr ert">
+                    <label class="radio"><input type="radio" name="radio" checked=""><i></i>M</label>
+                </div>
+                <div class="colr">
+                    <label class="radio"><input type="radio" name="radio"><i></i>L </label>
+                </div>
+                <div class="colr">
+                    <label class="radio"><input type="radio" name="radio"><i></i>XL </label>
+                </div>
+                <div class="colr">
+                    <label class="radio"><input type="radio" name="radio"><i></i>XXL</label>
+                </div>
+                <div class="colr ert">
+                    <label class="radio"><input type="radio" name="radio" checked=""><i></i>3XL</label>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            @*Giỏ hàng*@
+            <div>
+                <a class="now-get get-cart-in" href="/add-cart?productID=@Model.ID" id="btnAddToCart" data-id="@Model.ID">THÊM VÀO GIỎ HÀNG</a>
+            </div>
+            @*//*@
+            <ul class="social-nav model-3d-0 footer-social w3_agile_social single_page_w3ls">
+                <li class="share">Chia sẽ : </li>
+                <li>
+                    <a href="#" class="facebook">
+                        <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                        <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="twitter">
+                        <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                        <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="instagram">
+                        <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                        <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="pinterest">
+                        <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                        <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="clearfix"> </div>
+        <!-- /new_arrivals -->
+        <div class="responsive_tabs_agileits">
+            <div id="horizontalTab">
+                <ul class="resp-tabs-list">
+                    <li>Mô tả </li>
+                    <li>Đánh giá</li>
+                    <li>Thông tin</li>
+                </ul>
+                <div class="resp-tabs-container">
+                    <!--/tab_one-->
+                    <div class="tab1">
+
+                        <div class="single_page_agile_its_w3ls">
+                            <h6>@Model.Name</h6>
+                            <p>
+                                Áo khoác là một chiếc áo ngoại cỡ được thiết kế để bảo vệ cơ thể khỏi các yếu tố thời tiết khắc nghiệt. Được làm từ các loại vải chống nước,
+                                chống gió và cách nhiệt, áo khoác không chỉ mang lại cảm giác ấm áp mà còn tạo nên một lớp vật liệu bảo vệ hiệu quả. Thiết kế của áo khoác thường bao gồm cổ áo cao,
+                                túi đựng tiện ích và khóa kéo hoặc các nút cài, tạo nên sự thoải mái và tiện lợi cho người mặc. Áo khoác không chỉ là một vật dụng chống lạnh mà còn là biểu tượng của phong
+                                cách và sự thoải mái trong thời trang, phản ánh cá nhân và sở thích của người mặc.
+                            </p>
+                        </div>
+                    </div>
+                    <!--//tab_one-->
+                    <div class="tab2">
+
+                        <div class="single_page_agile_its_w3ls">
+                            <div class="bootstrap-tab-text-grids">
+                                <div class="bootstrap-tab-text-grid">
+                                    <div class="bootstrap-tab-text-grid-left">
+                                        <img src="~/Assets/Client/images/t1.jpg" alt=" " class="img-responsive">
+                                    </div>
+                                    <div class="bootstrap-tab-text-grid-right">
+                                        <ul>
+                                            <li><a href="#">Khách hàng tin cậy</a></li>
+                                            <li><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i> Trả lời</a></li>
+                                        </ul>
+                                        <p>
+                                            Sản phẩm tuyệt vời . Tôi sẽ ủng hộ vào lần tiếp theo
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="add-review">
+                                    <h4>Thêm đánh giá</h4>
+                                    <form action="#" method="post">
+                                        <input type="text" name="Name" required="Tên">
+                                        <input type="email" name="Email" required="Email">
+                                        <textarea name="Message" required=""></textarea>
+                                        <input type="submit" value="Gửi">
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="tab3">
+
+                        <div class="single_page_agile_its_w3ls">
+                            <h6>@Model.Name</h6>
+                            <p>
+                                Dòng áo khoác mới của chúng tôi là biểu tượng của sự kết hợp hoàn hảo giữa thiết kế đẹp mắt và chất liệu xuất sắc.
+                                Với sự đa dạng trong việc sử dụng chất liệu, chúng tôi tự hào giới thiệu bộ sưu tập này như một phản ánh tuyệt vời của sự thoải mái, chống nước và phong cách.
+                            </p>
+                            <p class="w3ls_para">
+                                Áo khoác được chế tác từ vải dù cao cấp, đảm bảo độ nhẹ nhàng và chống nước hiệu quả trong mọi điều kiện thời tiết.
+                                Chất liệu vải chống nước Gore-Tex được tích hợp giúp duy trì sự khô thoáng và thoải mái, đồng thời tạo ra một lớp bảo vệ vững chắc trước gió lạnh.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //new_arrivals -->
+        <!--/slider_owl-->
+
+        <div class="w3_agile_latest_arrivals">
+            <h3 class="wthree_text_info">Sản phẩm <span>Liên quan</span></h3>
+            @foreach (var listSame in list)
+            {
+                var url = "/" + listSame.Alias + "-p-" + listSame.ID + "/infor";
+                <div class="col-md-3 product-men single">
+                    <div class="men-pro-item simpleCart_shelfItem">
+                        <div class="men-thumb-item">
+                            <img src="@listSame.Image" alt="" class="pro-image-front">
+                            <img src="@listSame.Image" alt="" class="pro-image-back">
+                            <div class="men-cart-pro">
+                                <div class="inner-men-cart-pro">
+                                    <a href="@url" class="link-product-add-cart">Xem Chi Tiết</a>
+                                </div>
+                            </div>
+                            <span class="product-new-top">Bán Chạy</span>
+
+                        </div>
+                        <div class="item-info-product ">
+                            <h4><a href="single.html">@listSame.Name</a></h4>
+                            <div class="info-product-price">
+                                <span class="item_price">@listSame.Price</span>
+                                <del>@listSame.Price</del>
+                            </div>
+                            <div>
+                                <a class="now-get get-cart-in" href="/add-cart?productID=@listSame.ID" id="btnAddToCart" data-id="@listSame.ID">THÊM VÀO GIỎ HÀNG</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="clearfix"> </div>
+            <!--//slider_owl-->
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,49 @@
+﻿<div class="work-progres">
+    <div class="input-group mb-3" style="display: flex; justify-content: flex-end;">
+        <input type="text" ng-model="keyword" class="form-control" placeholder="Từ Khóa ..." aria-label="Recipient's username" aria-describedby="button-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="button" ng-click="search()" id="button-addon2">Tìm Kiếm</button>
+        </div>
+    </div>
+
+    <style>
+        .chit-chat-heading {
+            font-size: 30px; /* Đặt kích thước chữ mong muốn */
+            font-weight: initial; /* Đặt độ đậm của chữ */
+            color: orange
+        }
+    </style>
+    <div class="chit-chat-heading">
+        <strong>Tất Cả Yêu Cầu Cần Phản Hồi</strong>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th><strong><font color="green">Tên Khách Hàng </font></strong></th>
+                    <th><strong><font color="green">Số Điện Thoại </font></strong></th>
+                    <th><strong><font color="green">Gmail</font></strong></th>
+                    <th><strong><font color="green">Thời Gian</font></strong></th>
+                    <th><strong><font color="green">Chi Tiết</font></strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in listAllContact">
+                    <td><strong>{{item.Name}}</strong></td>
+                    <td><strong>{{item.PhoneNumber}}</strong></td>
+                    <td><strong>{{item.Email }}</strong></td>
+                    <td>
+                        <strong>{{ item.CreateDate | date:'dd/MM/yyyy HH:mm' }}</strong>
+                    </td>
+
+                    <td>
+                        <a ui-sref="contact_detail({id:item.ID})" class="btn btn-sm btn-primary">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

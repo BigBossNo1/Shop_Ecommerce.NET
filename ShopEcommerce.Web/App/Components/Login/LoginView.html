@@ -1,0 +1,42 @@
+﻿
+<body>
+    <div class="login-page">
+        <div class="login-main">
+            <div class="login-head">
+                <h1><font color="orange">Trang Đăng Nhập Quản Trị</font></h1>
+            </div>
+            <div class="login-block">
+                <form ng-submit="loginSubmit()">
+                    <input type="text" name="email" placeholder="Tên đăng nhập hoặc email" required="" ng-model="loginData.userName">
+                    <input type="password" name="password" class="lock" placeholder="Mật khẩu" ng-model="loginData.password">
+                    <div class="forgot-top-grids">
+                        <div class="forgot-grid">
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="brand1" value="">
+                                    <label for="brand1"><span></span>Nhớ người dùng</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="forgot">
+                            <a href="#">Không nhớ mậ khẩu?</a>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <!--<input type="submit" name="Sign In" value="Đăng nhập">-->
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng nhập</button>
+                    <h3>Không nhớ tôi?<a href="signup.html"> Đăng ký ngay</a></h3>
+                    <h2>hoặc đăng nhập với</h2>
+                    <div class="login-icons">
+                        <ul>
+                            <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="google"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </form>
+                <h5><a href="#!/admin">Về Trang Chủ</a></h5>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,120 @@
+﻿@model IEnumerable<ShopEcommerce.Web.Models.ProductCategoryViewModel>
+<div class="footer">
+    <div class="footer_agile_inner_info_w3l">
+        <div class="col-md-3 footer-left">
+            <h2><a href="index.html"><span>B</span>ig Boss </a></h2>
+            <p>
+                Nhãn hàng thời trang lớn , với nhiều mẫu mã đa dạng , có mặt trên khắp các tỉnh thành Việt Nam
+            </p>
+            <ul class="social-nav model-3d-0 footer-social w3_agile_social two">
+                <li>
+                    <a href="#" class="facebook">
+                        <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                        <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="twitter">
+                        <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                        <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="instagram">
+                        <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                        <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="pinterest">
+                        <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                        <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-9 footer-right">
+            <div class="sign-grds">
+                <div class="col-md-4 sign-gd">
+                    <h4>Thông tin <span>chúng tôi</span> </h4>
+                    <ul>
+                        <li><a href="/home">Trang Chủ</a></li>
+                        @foreach (var listProductCategory in Model)
+                        {
+                            var url = "/" + listProductCategory.Alias + "-pc-" + listProductCategory.ID + "/infor";
+                            <li><a href="@url">@listProductCategory.Name</a></li>
+                        }
+                    </ul>
+                </div>
+
+                <div class="col-md-5 sign-gd-two">
+                    <h4>Thông tin  <span>cửa hàng</span></h4>
+                    <div class="w3-address">
+                        <div class="w3-address-grid">
+                            <div class="w3-address-left">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                            </div>
+                            <div class="w3-address-right">
+                                <h6>Số Điện Thoại</h6>
+                                <p>+84 355725203</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="w3-address-grid">
+                            <div class="w3-address-left">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="w3-address-right">
+                                <h6>Địa Chỉ Email</h6>
+                                <p>Email :<a href="#"> toanlee03@gmail.com</a></p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="w3-address-grid">
+                            <div class="w3-address-left">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            </div>
+                            <div class="w3-address-right">
+                                <h6>Trụ Sở Chính</h6>
+                                <p>
+                                    Nam Tu Liem , Ha Noi , Viet Nam
+                                </p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 sign-gd flickr-post">
+                    <h4>Khách Hàng  <span>Thân Thiết</span></h4>
+                    <ul>
+                        <li><a href="single.html"><img src="~/Assets/Client/images/t1.jpg" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="single.html"><img src="~/Assets/Client/images/t2.jpg" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="single.html"><img src="~/Assets/Client/images/t3.jpg" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="single.html"><img src="~/Assets/Client/images/t4.jpg" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="single.html"><img src="~/Assets/Client/images/t1.jpg" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="single.html"><img src="~/Assets/Client/images/t2.jpg" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="single.html"><img src="~/Assets/Client/images/t3.jpg" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="single.html"><img src="~/Assets/Client/images/t2.jpg" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="single.html"><img src="~/Assets/Client/images/t4.jpg" alt=" " class="img-responsive" /></a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="agile_newsletter_footer">
+            <div class="col-sm-6 newsleft">
+                <h3>ĐĂNG KÝ ĐỂ NHẬN THÔNG BÁO !</h3>
+            </div>
+            <div class="col-sm-6 newsright">
+                <form action="#" method="post">
+                    <input type="email" placeholder="Email của bạn..." name="email" required="">
+                    <input type="submit" value="Gửi">
+                </form>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+        <p class="copy-right">&copy 2023 Bigboss. Độc quyền | Thiết kế bởi <a href="http://w3layouts.com/">W3layouts</a> và <a href="https://www.facebook.com/profile.php?id=100014497275622">LÊ VĂN TOÀN</a></p>
+    </div>
+</div>
